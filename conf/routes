@@ -1,0 +1,30 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# Home page
+GET     /                           controllers.Application.index()
+GET		/getpersons					controllers.Application.getPersons()
+POST	/personsave					controllers.Application.savePerson()
+POST	/personremove				controllers.Application.removePerson()
+
+GET		/connectuser				controllers.Application.connectUser()
+GET		/disconnectuser				controllers.Application.disconnectUser()
+
+# Multilink
+
+POST	/createaggregate			controllers.Multilink.createAggregate()
+GET		/getaggregates				controllers.Multilink.getAggregates()
+POST	/likeaggregate				controllers.Multilink.likeAggregate()
+POST	/dislikeaggregate			controllers.Multilink.dislikeAggregate()
+POST	/getaggregate				controllers.Multilink.getAggregate()
+
+# OAuth
+GET     /twitter/homeTimeline 		controllers.Twitter.homeTimeline()
+GET     /auth/twitter          		controllers.Twitter.auth()
+
+# CORS FIX
+OPTIONS /*all controllers.Application.preflight(all)
+
+# Map static resources from the /public folder to the /assets URL path
+GET     /assets/*file               controllers.Assets.at(path="/public", file)
